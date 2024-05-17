@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fungsi 2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        text-align: center;
+      }
+      .result {
+        margin-top: 20px;
+        white-space: pre-line;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fungsi 2</h1>
+      <label for="jumlahBaris">Jumlah Baris :</label>
+      <input type="number" id="jumlahBaris" min="1" required />
+      <br /><br />
+      <button onclick="buatBangun()">Submit</button>
+
+      <div id="hasil" class="result"></div>
+    </div>
+
+    <script>
+      function buatBangunTeks(jumlahBaris) {
+        let hasil = "";
+        for (let i = jumlahBaris; i > 0; i--) {
+          let baris = "*".repeat(i * 2 - 1);
+          hasil += baris + "\n";
+        }
+        return hasil.trim();
+      }
+
+      function buatBangun() {
+        const jumlahBaris = document.getElementById("jumlahBaris").value;
+        const hasil = buatBangunTeks(Number(jumlahBaris));
+
+        const hasilDiv = document.getElementById("hasil");
+        hasilDiv.textContent = hasil;
+      }
+    </script>
+  </body>
+</html>

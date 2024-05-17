@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #stopwatch {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      .buttons {
+        margin-bottom: 20px;
+      }
+      button {
+        font-size: 1em;
+        margin: 5px;
+        padding: 10px 20px;
+      }
+      #flags {
+        width: 250px;
+        text-align: left;
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      #flags div {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stopwatch</h1>
+    <div id="container">
+      <div id="stopwatch">00:00.000</div>
+      <div class="buttons">
+        <button id="startPauseBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="flagBtn">Flag</button>
+      </div>
+      <div id="flags"></div>
+    </div>
+
+    <script>
+      let startTime = 0;
+      let elapsedTime = 0;
+      let timerInterval;
+      let running = false;
+
+      const stopwatch = document.getElementById("stopwatch");
+      const startPauseBtn = document.getElementById("startPauseBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      const flagBtn = document.getElementById("flagBtn");
+      const flags = document.getElementById("flags");
+
+      function updateTime() {
+        const time = Date.now() - startTime + elapsedTime;
+        const minutes = Math.floor((time / 60000) % 60)
+          .toString()
+          .padStart(2, "0");
+        const seconds = Math.floor((time / 1000) % 60)
+          .toString()
+          .padStart(2, "0");
+        const milliseconds = (time % 1000).toString().padStart(3, "0");
+        stopwatch.textContent = `${minutes}:${seconds}.${milliseconds}`;
+      }
+
+      function startPause() {
+        if (running) {
+          elapsedTime += Date.now() - startTime;
+          clearInterval(timerInterval);
+          startPauseBtn.textContent = "Start";
+        } else {
+          startTime = Date.now();
+          timerInterval = setInterval(updateTime, 10);
+          startPauseBtn.textContent = "Pause";
+        }
+        running = !running;
+      }
+
+      function stop() {
+        clearInterval(timerInterval);
+        running = false;
+        elapsedTime = 0;
+        startPauseBtn.textContent = "Start";
+        stopwatch.textContent = "00:00.000";
+        flags.innerHTML = "";
+      }
+
+      function flag() {
+        if (running) {
+          const flagTime = stopwatch.textContent;
+          const div = document.createElement("div");
+          div.textContent = flagTime;
+          flags.appendChild(div);
+        }
+      }
+
+      startPauseBtn.addEventListener("click", startPause);
+      stopBtn.addEventListener("click", stop);
+      flagBtn.addEventListener("click", flag);
+    </script>
+  </body>
+</html>
