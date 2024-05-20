@@ -15,8 +15,10 @@ https://github.com/NCholisM/ttg_test/assets/57277402/eba72df8-0eb3-4580-914c-7ec
 ## Soal 4
 
 - Fungsi 1
-  https://github.com/NCholisM/ttg_test/assets/57277402/3f4e07c5-7300-48ae-84b1-85fdea017670
+  
+https://github.com/NCholisM/ttg_test/assets/57277402/3f4e07c5-7300-48ae-84b1-85fdea017670
 
 - Fungsi 2
-  https://github.com/NCholisM/ttg_test/assets/57277402/52c4d21b-3bc7-42e0-a8e4-18c7e6054e52
+
+https://github.com/NCholisM/ttg_test/assets/57277402/52c4d21b-3bc7-42e0-a8e4-18c7e6054e52
 
