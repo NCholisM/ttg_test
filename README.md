@@ -4,11 +4,13 @@ https://github.com/NCholisM/ttg_test/assets/57277402/8631d83b-d011-4fa0-a374-34b
 
 ## Soal 3
 
-- Tes API (GET, POST, PUT, DELETE)  
+- Tes API (GET, POST, PUT, DELETE)
+  
 https://github.com/NCholisM/ttg_test/assets/57277402/95eb5ad0-57aa-4f51-9009-2266a643f21d
 
 - Tes CRUD
-  https://github.com/NCholisM/ttg_test/assets/57277402/eba72df8-0eb3-4580-914c-7ec5ff59ac01
+  
+https://github.com/NCholisM/ttg_test/assets/57277402/eba72df8-0eb3-4580-914c-7ec5ff59ac01
 
 ## Soal 4
 
